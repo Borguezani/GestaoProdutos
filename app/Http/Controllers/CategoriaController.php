@@ -39,4 +39,40 @@ class CategoriaController extends Controller
             ->with('success', 'Categoria criada com sucesso!');
     }
 
+     /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Categoria $categoria): View
+    {
+        return view('categorias.edit', compact('categoria'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateCategoriaRequest $request, Categoria $categoria): RedirectResponse
+    {
+        $categoria->update($request->validated());
+
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria atualizada com sucesso!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Categoria $categoria): RedirectResponse
+    {
+        // Verifica se existem produtos vinculados
+        if ($categoria->produtos()->count() > 0) {
+            return redirect()->route('categorias.index')
+                ->with('error', 'Não é possível excluir uma categoria que possui produtos vinculados.');
+        }
+
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria excluída com sucesso!');
+    }
+
 }
