@@ -27,4 +27,22 @@ class ProfileUpdateRequest extends FormRequest
             ],
         ];
     }
+
+    /**
+     * Mensagens customizadas de validação
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'O nome é obrigatório.',
+            'name.string' => 'O nome deve ser uma string.',
+            'name.max' => 'O nome deve ter no máximo :max caracteres.',
+            'email.required' => 'O e-mail é obrigatório.',
+            'email.string' => 'O e-mail deve ser uma string.',
+            'email.lowercase' => 'O e-mail deve estar em letras minúsculas.',
+            'email.email' => 'O e-mail deve ser um endereço de e-mail válido.',
+            'email.max' => 'O e-mail deve ter no máximo :max caracteres.',
+            'email.unique' => 'Este e-mail já está em uso.',
+        ];
+    }
 }
