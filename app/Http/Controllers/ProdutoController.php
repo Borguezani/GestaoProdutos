@@ -24,4 +24,29 @@ class ProdutoController extends Controller
         
         return view('produtos.index', compact('produtos'));
     }
+
+     /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): View
+    {
+        $categorias = Categoria::orderBy('nome')->get();
+        
+        return view('produtos.create', compact('categorias'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreProdutoRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+        $data['usuario_id'] = Auth::id();
+        $data['ativo'] = ($data['quantidade'] ?? 0) > 0;
+
+        Produto::create($data);
+
+        return redirect()->route('produtos.index')
+            ->with('success', 'Produto criado com sucesso!');
+    }
 }
