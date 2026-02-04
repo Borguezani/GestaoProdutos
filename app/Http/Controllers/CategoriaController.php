@@ -20,4 +20,23 @@ class CategoriaController extends Controller
         return view('categorias.index', compact('categorias'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): View
+    {
+        return view('categorias.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreCategoriaRequest $request): RedirectResponse
+    {
+        Categoria::create($request->validated());
+
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria criada com sucesso!');
+    }
+
 }
