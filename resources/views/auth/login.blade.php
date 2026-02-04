@@ -5,6 +5,13 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <div>
+            <div class="flex justify-end mb-4">
+                <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900 underline">
+                    {{ __('Novo usuário? Registre-se aqui') }}
+                </a>
+            </div>
+        </div>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
