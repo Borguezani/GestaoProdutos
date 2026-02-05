@@ -50,6 +50,16 @@ class ProdutoSeeder extends Seeder
             'categoria_id' => $livros->id,
         ]);
 
+        // Produto com quantidade zero, mas ativo Para testar validação do command
+        Produto::create([
+            'nome' => 'Notebook Acer Aspire',
+            'valor' => 2800.00,
+            'quantidade' => 0,
+            'ativo' => true,
+            'usuario_id' => $usuario1->id,
+            'categoria_id' => $eletronicos->id,
+        ]);
+
         Produto::create([
             'nome' => 'Camiseta Básica',
             'valor' => 49.90,
