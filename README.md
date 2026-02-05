@@ -94,7 +94,7 @@ Após executar o seed, os seguintes usuários estarão disponíveis:
 
 ## 🎯 Acessando a Aplicação
 
-- **URL da aplicação:** http://localhost
+- **URL da aplicação:** http://localhost:8080
 - **Mailpit (visualizar emails):** http://localhost:8025
 - **Vite Dev Server:** http://localhost:5173
 - **PostgreSQL:** localhost:5432
