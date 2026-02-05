@@ -25,7 +25,7 @@ Sistema web para gerenciamento de produtos desenvolvido com Laravel 12. Cada usu
 
 ```bash
 git clone <url-do-repositorio>
-cd gestao-produtos-app
+cd GestaoProdutos
 ```
 
 ### 2. Configure o ambiente
