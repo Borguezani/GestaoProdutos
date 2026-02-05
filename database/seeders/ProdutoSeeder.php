@@ -60,6 +60,16 @@ class ProdutoSeeder extends Seeder
             'categoria_id' => $eletronicos->id,
         ]);
 
+        // Produto desativado com quantidade maior que zero Para testar validação do command
+        Produto::create([
+            'nome' => 'Smartphone Samsung Galaxy',
+            'valor' => 2200.00,
+            'quantidade' => 7,
+            'ativo' => false,
+            'usuario_id' => $usuario1->id,
+            'categoria_id' => $eletronicos->id,
+        ]);
+
         Produto::create([
             'nome' => 'Camiseta Básica',
             'valor' => 49.90,
