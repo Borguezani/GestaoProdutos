@@ -73,11 +73,14 @@ sail up -d
 # Execute as migrations e seeders
 ./vendor/bin/sail artisan migrate --seed
 
+# Instale dependências do PHP
+./vendor/bin/sail composer install
+
 # Instale dependências do Node.js
 ./vendor/bin/sail npm install
 
 # Compile os assets
-./vendor/bin/sail npm run dev
+  ./vendor/bin/sail npm run dev
 ```
 
 ## 👤 Usuários de Teste
